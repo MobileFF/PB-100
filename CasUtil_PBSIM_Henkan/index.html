@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PB ソースコード変換</title>
+</head>
+<body>
+    <h1>PB ソースコード変換</h1>
+    <p>CASutil形式で作成したソースコードと、PB-Sim/Pokecom GO形式のソースコードの相互変換（特殊文字のエスケープシーケンスの置き換え）を行います。</p>
+    
+    <h3>変換形式の選択</h3>
+    <input checked="" id="to_pbsim" name="mode" type="radio" value="" />CASutil→PB-Sim/Pokecom GO<br />
+    <input id="to_casutil" name="mode" type="radio" value="" />PB-Sim/Pokecom GO→CASutil<br />
+
+    <h3>ソースコードのペースト</h3>
+    <p>変換前のソースをペーストし「変換する」ボタンをクリックしてください。変換後のソースが下のテキストボックスに表示されます。</p>
+    <textarea cols="80" id="source_from" rows="10"></textarea><br />
+    <button id="exe">変換する</button>
+
+    <h3>変換後のソース</h3>
+    <textarea cols="80" disabled="" id="source_to" rows="10"></textarea><br />
+    <a download="result.bas" href="#" id="download">ダウンロード</a><br />
+    <p>※PB-Sim/Pokecom GO方式の場合は[P0]などプログラムエリアの記述が必要なため別途追加してください。CASutil形式の場合は[P0]などの記述は利用できないので削除し、プログラムエリアごとに別々のソースコードにしてください</p>
+
+    <h3>印刷イメージ</h3>
+	<div>
+        <pre class="pbList"><code id="printer_image" lang="en"></code></pre>
+    </div>
+    <p>※印刷イメージの表示には、PBロッキーさん(<a href="https://blog.pb-100.ga/">https://blog.pb-100.ga/</a>)作の"hamura.css"(<a href="https://github.com/PB-100/hamura.css">https://github.com/PB-100/hamura.css</a>)を利用させていただいています。</p>
+
+<p>
+  &#9632;
+</p>
+
+<script src="casutil_pbsim_henkan.js"></script>
+<script src="//pb-100.github.io/hamura.css/hamura.js"></script>
+<!--"hamura.css"(https://github.com/PB-100/hamura.css) is
+Copyright 2020 pbrocky
+Released under New BSD License.-->
+
+</body>
+</html>
