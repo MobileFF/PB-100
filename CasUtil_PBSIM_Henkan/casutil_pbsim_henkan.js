@@ -1,4 +1,4 @@
-const escape = [
+const escapeTable = [
     ["\\\\","\\BS","＼"],
     ["\\E-","\\EM","ｪ"],
     ["\\E+","\\EX","ｴ"],
@@ -53,7 +53,7 @@ document.getElementById("exe").addEventListener("click",event => {
     // console.log(source_from)
     let source_to = new String(source_from)
     let source_prt = new String(source_from)
-    for(const e of escape) {
+    for(const e of escapeTable) {
         let regexp = new RegExp(
             e[from]
                 .replace(/\\/gi,"\\\\")
@@ -111,10 +111,10 @@ document.getElementById("exe").addEventListener("click",event => {
         }
     }
 
-    console.log(source_prt)
+    console.log(source_prt.replace(/</gi,"&lt;"))
     document.getElementById("source_to").textContent = source_to
     document.getElementById("source_to").disabled = false
-    document.getElementById("printer_image").innerHTML = source_prt
+    document.getElementById("printer_image").innerHTML = source_prt.replace(/</gi,"&lt;")
 })
 
 document.getElementById("download").addEventListener("click",event => {
